@@ -257,6 +257,8 @@ func (ch *connHandler) RemoveListeners(name string) {
 			ch.listeners = append(ch.listeners[:i], ch.listeners[i+1:]...)
 		}
 	}
+	// add by caofei
+	configmanager.SetRemoveListenerConfig(name)
 }
 
 func (ch *connHandler) GracefulStopListener(lctx context.Context, name string) error {

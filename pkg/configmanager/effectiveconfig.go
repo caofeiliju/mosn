@@ -107,6 +107,13 @@ func SetRemoveClusterConfig(clusterName string) {
 	tryDump()
 }
 
+// add by caofei  SetRemoveListenerConfig update the listerer config when DeleteListerer
+func SetRemoveListenerConfig(listenerName string) {
+	configLock.Lock()
+	defer configLock.Unlock()
+	delete(conf.Listener, listenerName)
+	tryDump()
+}
 func SetHosts(clusterName string, hostConfigs []v2.Host) {
 	configLock.Lock()
 	defer configLock.Unlock()
