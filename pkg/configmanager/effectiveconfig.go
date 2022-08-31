@@ -114,6 +114,12 @@ func SetRemoveListenerConfig(listenerName string) {
 	delete(conf.Listener, listenerName)
 	tryDump()
 }
+func SetRemoveRouteConfig(routeName string) {
+	configLock.Lock()
+	defer configLock.Unlock()
+	delete(conf.Routers, routeName)
+	tryDump()
+}
 func SetHosts(clusterName string, hostConfigs []v2.Host) {
 	configLock.Lock()
 	defer configLock.Unlock()
