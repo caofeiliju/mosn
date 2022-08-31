@@ -111,7 +111,7 @@ func (cvt *xdsConverter) ConvertDeleteListeners(listeners []*envoy_config_listen
 	listenerAdapter := server.GetListenerAdapterInstance()
 	if listenerAdapter == nil {
 		// if listenerAdapter is nil, return directly
-		log.DefaultLogger.Errorf("listenerAdapter is nil and hasn't been initiated at this time")
+		log.DefaultLogger.Errorf("listenerAdapter is nil and hasn't been initiated caofei at this time")
 		cvt.stats.LdsUpdateReject.Inc(1)
 		return
 	}
